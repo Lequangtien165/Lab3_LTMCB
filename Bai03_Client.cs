@@ -35,21 +35,21 @@ namespace Lab03_23521572_LeQuangTien
             if (string.IsNullOrEmpty(tb_IP.Text) ||
                 string.IsNullOrEmpty(tb_port.Text))
             {
-                MessageBox.Show("Please enter all required information", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Vui lòng nhập đủ thông tin cần thiết", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             // Kiểm tra địa chỉ IP hợp lệ
             if (!IPAddress.TryParse(tb_IP.Text, out _))
             {
-                MessageBox.Show("Invalid IP Address!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Địa chỉ IP không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             // Kiểm tra số hiệu cổng hợp lệ
             if (!int.TryParse(tb_port.Text, out port) || port < 1 || port > 65535)
             {
-                MessageBox.Show("Invalid port number (must be between 1-65535)", "Error",
+                MessageBox.Show("Số hiệu cổng không hợp lệ (phải trong khoảng 1-65535)", "Lỗi",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -59,11 +59,11 @@ namespace Lab03_23521572_LeQuangTien
             try
             {
                 tcpClient = new TcpClient(serverIP, port);
-                rtb_sent_mess.AppendText("Connected.\n"); // Xác nhận kết nối thành công
+                rtb_sent_mess.AppendText("Đã kết nối.\n"); // Xác nhận kết nối thành công
             }
             catch (Exception ex)
             {
-                rtb_sent_mess.AppendText("Error: " + ex.Message + "\n"); // Thông báo lỗi nếu kết nối thất bại
+                rtb_sent_mess.AppendText("Lỗi: " + ex.Message + "\n"); // Thông báo lỗi nếu kết nối thất bại
             }
         }
 
@@ -78,38 +78,35 @@ namespace Lab03_23521572_LeQuangTien
             if (tcpClient != null && tcpClient.Connected)
             {
                 // Kiểm tra nếu đã kết nối thì mới cho phép gửi tin nhắn
-                if (tcpClient != null && tcpClient.Connected)
+                try
                 {
-                    try
+                    // Kiểm tra xem tin nhắn có rỗng không
+                    if (string.IsNullOrWhiteSpace(rtb_send_mess.Text))
                     {
-                        // Kiểm tra xem tin nhắn có rỗng không
-                        if (string.IsNullOrWhiteSpace(rtb_send_mess.Text))
+                        var result = MessageBox.Show("Tin nhắn hiện đang trống, bạn có muốn gửi không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        // Nếu người dùng chọn No, hủy việc gửi tin nhắn
+                        if (result == DialogResult.No)
                         {
-                            var result = MessageBox.Show("Your message is currently empty, do you still want to send it?", "Notice", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                            // Nếu người dùng chọn No, hủy việc gửi tin nhắn
-                            if (result == DialogResult.No)
-                            {
-                                return;
-                            }
+                            return;
                         }
+                    }
 
-                        // Thiết lập NetworkStream để gửi tin nhắn cho Server
-                        NetworkStream stream = tcpClient.GetStream();
-                        byte[] sendBuffer = Encoding.UTF8.GetBytes(rtb_send_mess.Text);
-                        stream.Write(sendBuffer, 0, sendBuffer.Length); // Gửi dữ liệu tới server
-                        rtb_sent_mess.AppendText("Message sent: " + rtb_send_mess.Text + "\n"); // Hiển thị tin nhắn đã gửi trên giao diện
-                        rtb_send_mess.Text = ""; // Xóa nội dung trong hộp gửi tin nhắn sau khi gửi
-                    }
-                    catch (Exception ex) // Bắt lỗi khi gửi tin nhắn không thành công
-                    {
-                        rtb_sent_mess.AppendText("Error sending message: " + ex.Message + "\n");
-                    }
+                    // Thiết lập NetworkStream để gửi tin nhắn cho Server
+                    NetworkStream stream = tcpClient.GetStream();
+                    byte[] sendBuffer = Encoding.UTF8.GetBytes(rtb_send_mess.Text);
+                    stream.Write(sendBuffer, 0, sendBuffer.Length); // Gửi dữ liệu tới server
+                    rtb_sent_mess.AppendText("Tin nhắn đã gửi: " + rtb_send_mess.Text + "\n"); // Hiển thị tin nhắn đã gửi trên giao diện
+                    rtb_send_mess.Text = ""; // Xóa nội dung trong hộp gửi tin nhắn sau khi gửi
                 }
-                else // Thông báo lỗi nếu chưa kết nối tới server
+                catch (Exception ex) // Bắt lỗi khi gửi tin nhắn không thành công
                 {
-                    rtb_sent_mess.AppendText("Not connected to server.\n");
+                    rtb_sent_mess.AppendText("Lỗi khi gửi tin nhắn: " + ex.Message + "\n");
                 }
+            }
+            else // Thông báo lỗi nếu chưa kết nối tới server
+            {
+                rtb_sent_mess.AppendText("Chưa kết nối tới server.\n");
             }
         }
 
