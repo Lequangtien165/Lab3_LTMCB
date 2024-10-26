@@ -36,7 +36,11 @@ namespace Lab03_23521572_LeQuangTien
         }
         private void button3_Click(object sender, EventArgs e)
         {
+            Bai03_Client client = new Bai03_Client();
+            client.Show();
 
+            Bai03_Server server = new Bai03_Server();
+            server.Show();
         }
         private void button4_Click(object sender, EventArgs e)
         {
