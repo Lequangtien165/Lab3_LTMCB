@@ -132,7 +132,6 @@ namespace Lab03_23521572_LeQuangTien
         {
             cts?.Cancel();
             tcpListener?.Stop();
-            AppendToRichTextBox("Server stopped.\n");
         }
 
         private void Bai03_Server_FormClosing(object sender, FormClosingEventArgs e)
