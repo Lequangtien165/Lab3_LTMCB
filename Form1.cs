@@ -23,12 +23,16 @@ namespace Lab03_23521572_LeQuangTien
         }
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Bai01_Client client = new Bai01_Client();
+            client.Show();
+            Bai01_Server server = new Bai01_Server();
+            server.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Bai02 bai02 = new Bai02();
+            bai02.Show();
         }
         private void button3_Click(object sender, EventArgs e)
         {
