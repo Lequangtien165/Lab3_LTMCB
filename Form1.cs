@@ -44,7 +44,8 @@ namespace Lab03_23521572_LeQuangTien
         }
         private void button4_Click(object sender, EventArgs e)
         {
-
+            Bai04 bai04 = new Bai04();
+            bai04.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
