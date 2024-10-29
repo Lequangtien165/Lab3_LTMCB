@@ -66,7 +66,7 @@ namespace Lab03_23521572_LeQuangTien
                 }
 
                 // Kiểm tra tính hợp lệ của số hiệu cổng
-                if (!int.TryParse(tb_port.Text, out int port) || port < 1 || port > 65535)
+                if (!int.TryParse(tb_port.Text, out port) || port < 1 || port > 65535)
                 {
                     MessageBox.Show("Số hiệu cổng không hợp lệ (phải từ 1-65535)", "Lỗi",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);

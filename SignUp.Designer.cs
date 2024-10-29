@@ -30,9 +30,10 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tb_username = new System.Windows.Forms.TextBox();
+            this.tb_pass = new System.Windows.Forms.TextBox();
+            this.bt_sign_up = new System.Windows.Forms.Button();
+            this.lbl_status = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -53,42 +54,54 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Password";
             // 
-            // textBox1
+            // tb_username
             // 
-            this.textBox1.Location = new System.Drawing.Point(71, 70);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(247, 20);
-            this.textBox1.TabIndex = 2;
+            this.tb_username.Location = new System.Drawing.Point(71, 70);
+            this.tb_username.Name = "tb_username";
+            this.tb_username.Size = new System.Drawing.Size(247, 20);
+            this.tb_username.TabIndex = 2;
             // 
-            // textBox2
+            // tb_pass
             // 
-            this.textBox2.Location = new System.Drawing.Point(71, 124);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(247, 20);
-            this.textBox2.TabIndex = 3;
+            this.tb_pass.Location = new System.Drawing.Point(71, 124);
+            this.tb_pass.Name = "tb_pass";
+            this.tb_pass.Size = new System.Drawing.Size(247, 20);
+            this.tb_pass.TabIndex = 3;
             // 
-            // button1
+            // bt_sign_up
             // 
-            this.button1.Location = new System.Drawing.Point(243, 162);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Đăng kí ";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.bt_sign_up.Location = new System.Drawing.Point(243, 162);
+            this.bt_sign_up.Name = "bt_sign_up";
+            this.bt_sign_up.Size = new System.Drawing.Size(75, 23);
+            this.bt_sign_up.TabIndex = 4;
+            this.bt_sign_up.Text = "Đăng kí ";
+            this.bt_sign_up.UseVisualStyleBackColor = true;
+            this.bt_sign_up.Click += new System.EventHandler(this.bt_sign_up_Click);
+            // 
+            // lbl_status
+            // 
+            this.lbl_status.AutoSize = true;
+            this.lbl_status.Font = new System.Drawing.Font("Segoe UI", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_status.Location = new System.Drawing.Point(155, 167);
+            this.lbl_status.Name = "lbl_status";
+            this.lbl_status.Size = new System.Drawing.Size(163, 13);
+            this.lbl_status.TabIndex = 5;
+            this.lbl_status.Text = "Đang xử lý yêu cầu của bạn...";
             // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 240);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.bt_sign_up);
+            this.Controls.Add(this.tb_pass);
+            this.Controls.Add(this.tb_username);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_status);
             this.Name = "SignUp";
             this.Text = "SignUp";
+            this.Load += new System.EventHandler(this.SignUp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -98,8 +111,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox tb_username;
+        private System.Windows.Forms.TextBox tb_pass;
+        private System.Windows.Forms.Button bt_sign_up;
+        private System.Windows.Forms.Label lbl_status;
     }
 }

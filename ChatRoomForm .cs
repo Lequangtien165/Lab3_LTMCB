@@ -24,46 +24,46 @@ namespace Lab03_23521572_LeQuangTien
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string roomCode = textBox1.Text;
+            //string roomCode = textBox1.Text;
 
-            if (string.IsNullOrEmpty(roomCode))
-            {
-                MessageBox.Show("Vui lòng nhập mã phòng.");
-                return;
-            }
+            //if (string.IsNullOrEmpty(roomCode))
+            //{
+            //    MessageBox.Show("Vui lòng nhập mã phòng.");
+            //    return;
+            //}
 
-            // Kiểm tra mã phòng có tồn tại không
-            if (DatabaseHelper.JoinRoom(roomCode))
-            {
-                MessageBox.Show("Đã tham gia thành công phòng chat: " + roomCode);
-                // Thực hiện logic tham gia phòng chat (ví dụ: mở giao diện chat)
-            }
-            else
-            {
-                MessageBox.Show("Phòng chat không tồn tại.");
-            }
+            //// Kiểm tra mã phòng có tồn tại không
+            //if (DatabaseHelper.JoinRoom(roomCode))
+            //{
+            //    MessageBox.Show("Đã tham gia thành công phòng chat: " + roomCode);
+            //    // Thực hiện logic tham gia phòng chat (ví dụ: mở giao diện chat)
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Phòng chat không tồn tại.");
+            //}
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string roomCode = textBox1.Text; // Mã phòng do người dùng nhập
-            int userId = 1; // ID người dùng hiện tại (cần thay đổi theo logic ứng dụng)
+            //string roomCode = textBox1.Text; // Mã phòng do người dùng nhập
+            //int userId = 1; // ID người dùng hiện tại (cần thay đổi theo logic ứng dụng)
 
-            if (string.IsNullOrEmpty(roomCode))
-            {
-                MessageBox.Show("Vui lòng nhập mã phòng mới.");
-                return;
-            }
+            //if (string.IsNullOrEmpty(roomCode))
+            //{
+            //    MessageBox.Show("Vui lòng nhập mã phòng mới.");
+            //    return;
+            //}
 
-            // Tạo phòng chat mới trong cơ sở dữ liệu
-            if (DatabaseHelper.CreateChatRoom(roomCode, userId))
-            {
-                MessageBox.Show("Đã tạo phòng chat thành công: " + roomCode);
-            }
-            else
-            {
-                MessageBox.Show("Không thể tạo phòng chat. Mã phòng có thể đã tồn tại.");
-            }
+            //// Tạo phòng chat mới trong cơ sở dữ liệu
+            //if (DatabaseHelper.CreateChatRoom(roomCode, userId))
+            //{
+            //    MessageBox.Show("Đã tạo phòng chat thành công: " + roomCode);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Không thể tạo phòng chat. Mã phòng có thể đã tồn tại.");
+            //}
         }
     }
 }
