@@ -50,6 +50,8 @@ namespace Lab03_23521572_LeQuangTien
 
         private void button5_Click(object sender, EventArgs e)
         {
+            Bai05 bai05 = new Bai05();
+            bai05.Show();
 
         }   
     }
