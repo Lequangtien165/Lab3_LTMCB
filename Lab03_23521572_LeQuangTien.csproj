@@ -134,6 +134,12 @@
     <Compile Include="Bai05.Designer.cs">
       <DependentUpon>Bai05.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bai05_Server.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bai05_Server.Designer.cs">
+      <DependentUpon>Bai05_Server.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChatRoomForm .cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Room.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Room.Designer.cs">
+      <DependentUpon>Room.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoomDetail.cs" />
     <Compile Include="SignUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +196,9 @@
     <EmbeddedResource Include="Bai05.resx">
       <DependentUpon>Bai05.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bai05_Server.resx">
+      <DependentUpon>Bai05_Server.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChatRoomForm .resx">
       <DependentUpon>ChatRoomForm .cs</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +214,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Room.resx">
+      <DependentUpon>Room.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>

@@ -63,6 +63,8 @@ namespace Lab03_23521572_LeQuangTien
                 {
                     MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     OpenChatRoomForm(); // Mở form ChatRoom nếu đăng nhập thành công
+
+                    InitializeServer(); // Mở form Server
                 }
                 else
                 {
@@ -73,6 +75,12 @@ namespace Lab03_23521572_LeQuangTien
             {
                 MessageBox.Show($"Đã xảy ra lỗi: {ex}", "Cảnh báo lỗi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void InitializeServer()
+        {
+            Bai05_Server bai05_Server = new Bai05_Server();
+            bai05_Server.Show();
         }
 
         /// <summary>

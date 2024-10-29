@@ -1,6 +1,6 @@
 ﻿namespace Lab03_23521572_LeQuangTien
 {
-    partial class Bai04_Client
+    partial class Room
     {
         /// <summary>
         /// Required designer variable.
@@ -44,7 +44,7 @@
             this.title.Location = new System.Drawing.Point(308, 28);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(158, 39);
-            this.title.TabIndex = 13;
+            this.title.TabIndex = 20;
             this.title.Text = "Chat Room";
             // 
             // label_message
@@ -54,7 +54,7 @@
             this.label_message.Location = new System.Drawing.Point(42, 375);
             this.label_message.Name = "label_message";
             this.label_message.Size = new System.Drawing.Size(72, 19);
-            this.label_message.TabIndex = 12;
+            this.label_message.TabIndex = 19;
             this.label_message.Text = "Message:";
             this.label_message.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
@@ -65,7 +65,7 @@
             this.label_name.Location = new System.Drawing.Point(42, 324);
             this.label_name.Name = "label_name";
             this.label_name.Size = new System.Drawing.Size(88, 19);
-            this.label_name.TabIndex = 11;
+            this.label_name.TabIndex = 18;
             this.label_name.Text = "Your name:";
             this.label_name.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
@@ -75,7 +75,7 @@
             this.button_send.Location = new System.Drawing.Point(634, 386);
             this.button_send.Name = "button_send";
             this.button_send.Size = new System.Drawing.Size(102, 37);
-            this.button_send.TabIndex = 10;
+            this.button_send.TabIndex = 17;
             this.button_send.Text = "SEND";
             this.button_send.UseVisualStyleBackColor = true;
             this.button_send.Click += new System.EventHandler(this.button_send_Click);
@@ -86,7 +86,7 @@
             this.textBox_message.Location = new System.Drawing.Point(46, 397);
             this.textBox_message.Name = "textBox_message";
             this.textBox_message.Size = new System.Drawing.Size(566, 26);
-            this.textBox_message.TabIndex = 9;
+            this.textBox_message.TabIndex = 16;
             this.textBox_message.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_message_KeyDown);
             // 
             // textBox_name
@@ -95,7 +95,7 @@
             this.textBox_name.Location = new System.Drawing.Point(46, 346);
             this.textBox_name.Name = "textBox_name";
             this.textBox_name.Size = new System.Drawing.Size(195, 26);
-            this.textBox_name.TabIndex = 8;
+            this.textBox_name.TabIndex = 15;
             // 
             // listBox_chatboxC
             // 
@@ -106,9 +106,9 @@
             this.listBox_chatboxC.Name = "listBox_chatboxC";
             this.listBox_chatboxC.ScrollAlwaysVisible = true;
             this.listBox_chatboxC.Size = new System.Drawing.Size(713, 251);
-            this.listBox_chatboxC.TabIndex = 7;
+            this.listBox_chatboxC.TabIndex = 14;
             // 
-            // Bai04_Client
+            // Room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -120,8 +120,8 @@
             this.Controls.Add(this.textBox_message);
             this.Controls.Add(this.textBox_name);
             this.Controls.Add(this.listBox_chatboxC);
-            this.Name = "Bai04_Client";
-            this.Text = "Bai04_Client";
+            this.Name = "Room";
+            this.Text = "Room";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

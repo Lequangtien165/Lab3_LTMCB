@@ -12,42 +12,47 @@ using System.Windows.Forms;
 
 namespace Lab03_23521572_LeQuangTien
 {
-    public partial class Bai04_Client : Form
+    public partial class Room : Form
     {
+        private string roomId; // Thêm thuộc tính để lưu ID phòng
+
         private TcpClient _client;
         private NetworkStream _stream;
         private Thread _receiveThread;
         private volatile bool _isRunning = true; // Thêm flag để kiểm soát thread
 
-        public Bai04_Client()
+        public Room()
         {
             InitializeComponent();
-            ConnectToServer(); // Kết nối đến server ngay khi form được mở
         }
 
+        // Constructor nhận ID phòng
+        public Room(string roomId)
+        {
+            InitializeComponent();
+            this.roomId = roomId; // Gán ID phòng
+            ConnectToServer(); // Kết nối đến server ngay khi form được mở
+
+            UpdateChat($"This room ID is: {roomId}"); // Hiển thị thông báo ID phòng đang ở
+        }
         private void ConnectToServer()
         {
             try
             {
                 _client = new TcpClient("127.0.0.1", 8080);
-                //_stream = _client.GetStream();
-                //_receiveThread = new Thread(ReceiveMessages);
-                //_receiveThread.Start();
-                //UpdateChat("Connected to server.");
+                _stream = _client.GetStream();
+                _receiveThread = new Thread(ReceiveMessages);
+                _receiveThread.Start();
+
+                // Gửi ID phòng tới server
+                SendMessage($"{roomId}"); // Gửi ID phòng tới server
+                UpdateChat("Connected to server.");
             }
             catch (SocketException)
             {
                 // Hiển thị thông báo nhắc nhở người dùng
                 MessageBox.Show("Không thể kết nối với máy chủ. Vui lòng đảm bảo máy chủ đang chạy và lắng nghe.",
                                 "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                //// Ngắt kết nối và đóng form nếu thao tác thất bại
-                //_client?.Close();
-                //if (_stream != null)
-                //{
-                //    _stream.Close();
-                //    _stream = null;
-                //}
                 MessageBox.Show("Hãy đóng Form Client vừa tạo ra và thực hiện lại.",
                                 "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -123,6 +128,7 @@ namespace Lab03_23521572_LeQuangTien
             }
         }
 
+
         private void ClientForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             SendMessage("ClientDisconnected");
@@ -172,3 +178,4 @@ namespace Lab03_23521572_LeQuangTien
         }
     }
 }
+

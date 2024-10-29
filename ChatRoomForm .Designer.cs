@@ -28,57 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.bt_join = new System.Windows.Forms.Button();
+            this.bt_create = new System.Windows.Forms.Button();
+            this.tb_room_id = new System.Windows.Forms.TextBox();
+            this.lbl_input_id = new System.Windows.Forms.Label();
+            this.lbl_instruction = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // bt_join
             // 
-            this.button1.Location = new System.Drawing.Point(192, 176);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 58);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Tham gia group chat ";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.bt_join.Location = new System.Drawing.Point(226, 153);
+            this.bt_join.Name = "bt_join";
+            this.bt_join.Size = new System.Drawing.Size(129, 58);
+            this.bt_join.TabIndex = 0;
+            this.bt_join.Text = "Tham gia group chat ";
+            this.bt_join.UseVisualStyleBackColor = true;
+            this.bt_join.Click += new System.EventHandler(this.bt_join_Click);
             // 
-            // button2
+            // bt_create
             // 
-            this.button2.Location = new System.Drawing.Point(339, 176);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(129, 58);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Tạo một group chat mới";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.bt_create.Location = new System.Drawing.Point(373, 153);
+            this.bt_create.Name = "bt_create";
+            this.bt_create.Size = new System.Drawing.Size(129, 58);
+            this.bt_create.TabIndex = 1;
+            this.bt_create.Text = "Tạo một group chat mới";
+            this.bt_create.UseVisualStyleBackColor = true;
+            this.bt_create.Click += new System.EventHandler(this.bt_create_Click);
             // 
-            // textBox1
+            // tb_room_id
             // 
-            this.textBox1.Location = new System.Drawing.Point(192, 130);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(276, 20);
-            this.textBox1.TabIndex = 2;
+            this.tb_room_id.Location = new System.Drawing.Point(268, 77);
+            this.tb_room_id.Name = "tb_room_id";
+            this.tb_room_id.Size = new System.Drawing.Size(276, 20);
+            this.tb_room_id.TabIndex = 2;
             // 
-            // label1
+            // lbl_input_id
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(97, 133);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Nhập mã phòng  ";
+            this.lbl_input_id.AutoSize = true;
+            this.lbl_input_id.Location = new System.Drawing.Point(173, 80);
+            this.lbl_input_id.Name = "lbl_input_id";
+            this.lbl_input_id.Size = new System.Drawing.Size(89, 13);
+            this.lbl_input_id.TabIndex = 3;
+            this.lbl_input_id.Text = "Nhập mã phòng  ";
+            // 
+            // lbl_instruction
+            // 
+            this.lbl_instruction.AutoSize = true;
+            this.lbl_instruction.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_instruction.Location = new System.Drawing.Point(63, 117);
+            this.lbl_instruction.Name = "lbl_instruction";
+            this.lbl_instruction.Size = new System.Drawing.Size(640, 13);
+            this.lbl_instruction.TabIndex = 4;
+            this.lbl_instruction.Text = "Hướng dẫn: Nhập mã phòng ở ô trống trên, bạn có thể chọn tham gia phòng chat hoặc" +
+    " là tạo phòng chat mới với mã đó.";
             // 
             // ChatRoomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(691, 480);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(772, 289);
+            this.Controls.Add(this.lbl_instruction);
+            this.Controls.Add(this.lbl_input_id);
+            this.Controls.Add(this.tb_room_id);
+            this.Controls.Add(this.bt_create);
+            this.Controls.Add(this.bt_join);
             this.Name = "ChatRoomForm";
             this.Text = "ChatRoomForm";
             this.Load += new System.EventHandler(this.ChatRoomForm_Load);
@@ -89,9 +102,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button bt_join;
+        private System.Windows.Forms.Button bt_create;
+        private System.Windows.Forms.TextBox tb_room_id;
+        private System.Windows.Forms.Label lbl_input_id;
+        private System.Windows.Forms.Label lbl_instruction;
     }
 }
