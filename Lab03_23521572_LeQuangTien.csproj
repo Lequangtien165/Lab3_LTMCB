@@ -123,6 +123,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Lab03DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Lab03DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lab03DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignUp.cs">
@@ -186,6 +191,17 @@
     </None>
     <None Include="Lab03DataSet.xss">
       <DependentUpon>Lab03DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Lab03DataSet1.xsc">
+      <DependentUpon>Lab03DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Lab03DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Lab03DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Lab03DataSet1.xss">
+      <DependentUpon>Lab03DataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

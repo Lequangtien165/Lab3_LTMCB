@@ -20,8 +20,17 @@ namespace Lab03_23521572_LeQuangTien
         private void button1_Click(object sender, EventArgs e)
         {
             var username = textBox1.Text;
+            if(string.IsNullOrEmpty(username))
+            {
+                MessageBox.Show("Vui lòng nhập tên đăng nhập.");
+                return;
+            }
             var password = textBox2.Text;
-
+            if(string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu.");
+                return;
+            }
             if (DatabaseHelper.RegisterUser(username, password))
             {
                 MessageBox.Show("Đăng ký thành công.");
