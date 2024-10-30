@@ -45,19 +45,42 @@ namespace Lab03_23521572_LeQuangTien
             }
         }
 
+        private bool _isListening = false; // Thêm cờ kiểm soát
+
         private void ListenForClients()
         {
-            while (true)
+            _isListening = true;
+            while (_isListening)
             {
-                TcpClient client = _server.AcceptTcpClient();
-                Thread clientThread = new Thread(HandleClientComm);
-                clientThread.Start(client);
+                try
+                {
+                    if (_server != null)
+                    {
+                        // Set timeout cho socket
+                        _server.Server.ReceiveTimeout = 1000; // 1 giây
+                        _server.Server.SendTimeout = 1000;
 
-                // Lấy địa chỉ IP và port của client
-                IPEndPoint clientEndPoint = client.Client.RemoteEndPoint as IPEndPoint;
-                string clientInfo = $"New client connected from: {clientEndPoint.Address}:{clientEndPoint.Port}";
+                        if (_server.Pending()) // Kiểm tra xem có client đang chờ kết nối không
+                        {
+                            TcpClient client = _server.AcceptTcpClient();
+                            Thread clientThread = new Thread(HandleClientComm);
+                            clientThread.Start(client);
 
-                UpdateStatus(clientInfo); // Cập nhật thông tin client
+                            IPEndPoint clientEndPoint = client.Client.RemoteEndPoint as IPEndPoint;
+                            string clientInfo = $"New client connected from: {clientEndPoint.Address}:{clientEndPoint.Port}";
+                            UpdateStatus(clientInfo);
+                        }
+                        else
+                        {
+                            Thread.Sleep(100); // Tránh tiêu tốn CPU
+                        }
+                    }
+                }
+                catch (SocketException ex)
+                {
+                    // Xử lý exception nếu cần
+                    if (!_isListening) break; // Thoát nếu đã yêu cầu dừng
+                }
             }
         }
 
@@ -162,20 +185,26 @@ namespace Lab03_23521572_LeQuangTien
         {
             try
             {
+                _isListening = false; // Đặt cờ để dừng vòng lặp lắng nghe
+
                 if (_server != null)
                 {
                     _server.Stop();
                 }
 
-                // Đợi thread kết thúc một cách an toàn
                 if (_listenerThread != null && _listenerThread.IsAlive)
                 {
-                    _listenerThread.Join(1000); // Đợi tối đa 1 giây
+                    _listenerThread.Join(2000); // Đợi tối đa 2 giây
+
+                    // Nếu thread vẫn chưa kết thúc sau 2 giây, có thể buộc kết thúc
+                    if (_listenerThread.IsAlive)
+                    {
+                        _listenerThread.Abort(); // Lưu ý: Abort() không được khuyến khích trong production
+                    }
                 }
             }
             catch (Exception ex)
             {
-                // Xử lý exception nếu cần
                 Console.WriteLine($"Error during cleanup: {ex.Message}");
             }
         }

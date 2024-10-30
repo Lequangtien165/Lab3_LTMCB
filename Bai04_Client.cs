@@ -30,10 +30,10 @@ namespace Lab03_23521572_LeQuangTien
             try
             {
                 _client = new TcpClient("127.0.0.1", 8080);
-                //_stream = _client.GetStream();
-                //_receiveThread = new Thread(ReceiveMessages);
-                //_receiveThread.Start();
-                //UpdateChat("Connected to server.");
+                _stream = _client.GetStream();
+                _receiveThread = new Thread(ReceiveMessages);
+                _receiveThread.Start();
+                UpdateChat("Connected to server.");
             }
             catch (SocketException)
             {
@@ -41,13 +41,6 @@ namespace Lab03_23521572_LeQuangTien
                 MessageBox.Show("Không thể kết nối với máy chủ. Vui lòng đảm bảo máy chủ đang chạy và lắng nghe.",
                                 "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                //// Ngắt kết nối và đóng form nếu thao tác thất bại
-                //_client?.Close();
-                //if (_stream != null)
-                //{
-                //    _stream.Close();
-                //    _stream = null;
-                //}
                 MessageBox.Show("Hãy đóng Form Client vừa tạo ra và thực hiện lại.",
                                 "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
