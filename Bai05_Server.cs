@@ -199,7 +199,7 @@ namespace Lab03_23521572_LeQuangTien
                     // Nếu thread vẫn chưa kết thúc sau 2 giây, có thể buộc kết thúc
                     if (_listenerThread.IsAlive)
                     {
-                        _listenerThread.Abort(); // Lưu ý: Abort() không được khuyến khích trong production
+                        _listenerThread.Abort(); 
                     }
                 }
             }
